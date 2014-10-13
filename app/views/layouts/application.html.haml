@@ -31,58 +31,19 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href=> "#"}gCamp
+          %a.navbar-brand{:href=> "/"}gCamp
         %div.navbar-collapse.collapse
 
+    = yield
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    %div.container.title
-      %h1 gCamp
-      %p Your Life, Organized
+    %footer.nav
+      = link_to "About", about_path
+      = link_to "Terms", terms_path
 
-    %div.container
-      <!-- Example row of columns -->
-      %div.row
-        %div.col-md-4
-          /%img.pic{src:"https://farm4.staticflickr.com/3784/10788864133_9c2902226c_n.jpg"}
-
-          %div.panel.panel-info
-            %div.panel-heading
-              %h3.panel-title Tasks
-            %div.panel-body Grouped by projects and lists.  Just the way you like'em
-
-        %div.col-md-4
-          /%img.pic{src:"https://farm7.staticflickr.com/6101/6852546666_936aa6e5ed_n.jpg"}
-
-          %div.panel.panel-info
-            %div.panel-heading
-              %h3.panel-title Documents
-
-            %div.panel-body
-              %ul
-                %li Upload
-                %li Comment
-                %li Revise
-
-        %div.col-md-4
-          /%img.pic{src:"https://farm3.staticflickr.com/2241/2318978643_7752052a97_n.jpg"}
-          %div.panel.panel-info
-            %div.panel-heading
-              %h3.panel-title Comments
-
-            %div.panel-body
-              %ul
-                %li Comment on tasks and documents
-                %li Get email notifications
-
-
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  / Bootstrap core JavaScript
+  / ==================================================
+  /Placed at the end of the document so the pages load faster
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  /IE10 viewport hack for Surface/desktop Windows 8 bug
+  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
