@@ -36,9 +36,13 @@
 
     = yield
 
+    %div.container.footbar
     %footer.nav
-      = link_to "About", about_path
-      = link_to "Terms", terms_path
+      %div.container
+        %div.col-md-1
+          = link_to "About", about_path
+        %div.col-md-1
+          = link_to "Terms", terms_path
 
   / Bootstrap core JavaScript
   / ==================================================
