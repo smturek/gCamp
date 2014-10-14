@@ -40,3 +40,13 @@
           %ul
             %li Comment on tasks and documents
             %li Get email notifications
+
+    %div.container.row
+
+    %div.container.row
+      %div
+      - quotes = [["Not all those who wander are lost.","- J.R.R Tolkien"], ["Be yourself; everyone else is already taken.","- Oscar Wilde"], ["Whenever you find yourself on the side of the majority, it is time to pause and reflect.","- Mark Twain"]]
+      - quotes.each do |quote|
+        -quote.each do |quote|
+          %h3.quote
+            =quote
