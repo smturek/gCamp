@@ -1,7 +1,6 @@
 %div.container.row
   %div.faq
-    - faq = [@what_is, @join, @finished]
-    - faq.each do |question|
+    - @faq.each do |question|
       %h3.quote
         = question.question
       %h5
