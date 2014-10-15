@@ -44,10 +44,10 @@
     %div.container.row
 
     %div.container.row
-      %div
-      - quotes = [["Not all those who wander are lost.","- J.R.R Tolkien"], ["Be yourself; everyone else is already taken.","- Oscar Wilde"], ["Whenever you find yourself on the side of the majority, it is time to pause and reflect.","- Mark Twain"]]
+      %div.col-md-1
+      - quotes = [@tolkien, @wilde, @twain]
       - quotes.each do |quote|
         %h3.quote
-          = quote[0]
-        %h4.muted
-          = quote[1]
+          = quote.text
+        %h4.quote
+          = quote.person
