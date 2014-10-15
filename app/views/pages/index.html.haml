@@ -45,8 +45,8 @@
 
     %div.container.row
       %div.quotes
-        - quotes = [@tolkien, @wilde, @twain]
-        - quotes.each do |quote|
+        - @quote.each do |quote|
+        
           %h3.quote
             = quote.text
           %h4.quote
