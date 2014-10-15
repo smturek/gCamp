@@ -44,10 +44,10 @@
     %div.container.row
 
     %div.container.row
-      %div.col-md-1
-      - quotes = [@tolkien, @wilde, @twain]
-      - quotes.each do |quote|
-        %h3.quote
-          = quote.text
-        %h4.quote
-          = quote.person
+      %div.quotes
+        - quotes = [@tolkien, @wilde, @twain]
+        - quotes.each do |quote|
+          %h3.quote
+            = quote.text
+          %h4.quote
+            = quote.person
