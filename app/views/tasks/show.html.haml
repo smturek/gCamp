@@ -1,9 +1,12 @@
-%p#notice= notice
+%div.container
+  %div.test
 
-%p
-  %b Description:
-  = @task.description
+    %p#notice= notice
 
-= link_to 'Edit', edit_task_path(@task)
-\|
-= link_to 'Back', tasks_path
+    %p
+      %b Description:
+      = @task.description
+
+    = link_to 'Edit', edit_task_path(@task)
+    \|
+    = link_to 'Back', tasks_path
