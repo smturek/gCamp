@@ -1,10 +1,8 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-%div.container.indextitle
-  %div.col-md-4
-  %div.col-md-4
-    %h1.text-center gCamp
-    %p.text-center Your Life, Organized
-  %div.col-md-4
+%div.container.jumbotron
+  %h1.text-center gCamp
+  %p.text-center Your Life, Organized
+
 
 %div.container
   <!-- Example row of columns -->
@@ -46,7 +44,7 @@
     %div.container.row
       %div.quotes
         - @quote.each do |quote|
-        
+
           %h3.quote
             = quote.text
           %h4.quote
