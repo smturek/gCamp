@@ -36,14 +36,18 @@
 
     = yield
 
-    %footer.navbar.navbar-inverse
+    %div.navbar.navbar-inverse
       %div.container
-        %div.col-md-1
-          = link_to_unless_current("About", about_path)
-        %div.col-md-1
-          = link_to_unless_current("Terms", terms_path)
-        %div.col-md-1
-          = link_to_unless_current("FAQ", faq_path)
+        %div.navbar-footer
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to_unless_current("About", about_path)
+            %li.active
+              = link_to_unless_current("Terms", terms_path)
+            %li.active
+              = link_to_unless_current("FAQ", faq_path)
+            %li.active
+              = link_to_unless_current("Tasks", tasks_path)
 
   / Bootstrap core JavaScript
   / ==================================================

@@ -1,7 +1,6 @@
-%div.container.row
-  %div.faq
-    - @faq.each do |question|
-      %h3.quote
-        = question.question
-      %h5
-        = question.answer
+%div.container.title
+  - @faq.each do |question|
+    %h3.quote
+      = question.question
+    %h5
+      = question.answer
