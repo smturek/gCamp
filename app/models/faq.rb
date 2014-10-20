@@ -7,10 +7,6 @@ class Faq
     @answer = a
   end
 
-  def slug
-    question
-  end
-
   def self.all
 
   end
