@@ -1,25 +1,19 @@
 %div.container
-  %div.test
-    %button.btn.btn-primary.pull-right{:type => "button"}= link_to 'New Task', new_task_path
-    %h1 Tasks
-    %hr
-    %table
-      %tr
-        %th Description
-    %hr
-
+  = link_to 'New Task', new_task_path, :class => "btn btn-primary pull-right"
+  %h1 Tasks
+  %table.table
+    %tr
+      %th Description
+      %th Complete
+      %th
     - @tasks.each do |task|
-      %div.tasks
-        %tr
-          %td
-            %p
-            = task.description
-          %td
-            = link_to 'Destroy', task, :class => "btn btn-danger pull-right", :method => :delete, :data => { :confirm => 'Are you sure?' }
-          %td
-            = link_to 'Show', task, :class => "btn btn-success pull-right"
-          %td
-            = link_to 'Edit', edit_task_path(task), :class => "btn btn-primary pull-right"
-          %br
-        %hr
-%br
+      %tr
+        %td
+          = task.description
+        %td
+          = task.complete
+        %td
+          = link_to 'Destroy', task, :class => "btn btn-danger pull-right", :method => :delete, :data => { :confirm => 'Are you sure?' }
+          = link_to 'Show', task, :class => "btn btn-success pull-right"
+          = link_to 'Edit', edit_task_path(task), :class => "btn btn-primary pull-right"
+  %hr

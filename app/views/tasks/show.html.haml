@@ -7,5 +7,9 @@
       %b Description:
       = @task.description
 
+    %p
+      %b Completed:
+      = @task.complete
+
     = link_to 'Edit', edit_task_path(@task), :class => "btn btn-primary"
     = link_to 'Back', tasks_path, :class => "btn btn-primary"
