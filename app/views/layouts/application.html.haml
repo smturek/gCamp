@@ -11,6 +11,8 @@
     %title Jumbotron Template for Bootstrap
     = stylesheet_link_tag 'application'
     = csrf_meta_tags
+    = javascript_include_tag 'application'
+    
     / Bootstrap core CSS
     %link{:href => "../../dist/css/bootstrap.min.css", :rel => "stylesheet"}/
     / Custom styles for this template
@@ -49,5 +51,3 @@
               = link_to_unless_current("FAQ", faq_path)
             %li.active
               = link_to_unless_current("Tasks", tasks_path)
-
-    = javascript_include_tag 'application'
