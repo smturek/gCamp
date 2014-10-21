@@ -14,5 +14,10 @@
       .field
         = f.label :description
         = f.text_field :description
+        %br
+        %br
+        = f.label :complete
+        = f.check_box :complete
+        %br
       .actions
         = f.submit 'Update Task', :class => "btn btn-primary"
