@@ -1,6 +1,7 @@
 .container
 
   %h1 Edit task
+  %br
 
   = form_for @task, :html => {:class => 'form-horizontal'} do |f|
     - if @task.errors.any?
@@ -11,16 +12,16 @@
             %li= msg
 
     .form-group
-      = f.label :description, :class => "col-sm-2 control-label"
-      .col-sm-10
+      = f.label :description, :class => "col-md-1 control-label"
+      .col-md-11
         = f.text_field :description, :class => "form-control"
 
     .form-group
-      .col-sm-10.col-sm-offset-2
+      .col-md-12.col-md-offset-1
         .checkbox
           %label
             = f.check_box :complete
             Complete
 
-    .actions.col-sm-offset-2
+    .actions.col-sm-offset-1
       = f.submit 'Update Task', :class => "btn btn-primary"
