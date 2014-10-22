@@ -1,27 +1,26 @@
 .container
-  .test
 
-    %h1 Edit task
+  %h1 Edit task
 
-    = form_for @task, :html => {:class => 'form-horizontal'} do |f|
-      - if @task.errors.any?
-        #error_explanation
-          %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-          %ul
-            - @task.errors.full_messages.each do |msg|
-              %li= msg
+  = form_for @task, :html => {:class => 'form-horizontal'} do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
 
-      .form-group
-        = f.label :description, :class => "col-sm-2 control-label"
-        .col-sm-10
-          = f.text_field :description, :class => "form-control"
+    .form-group
+      = f.label :description, :class => "col-sm-2 control-label"
+      .col-sm-10
+        = f.text_field :description, :class => "form-control"
 
-      .form-group
-        .col-sm-10.col-sm-offset-2
-          .checkbox
-            %label
-              = f.check_box :complete
-              Complete
+    .form-group
+      .col-sm-10.col-sm-offset-2
+        .checkbox
+          %label
+            = f.check_box :complete
+            Complete
 
-      .actions.col-sm-offset-2
-        = f.submit 'Update Task', :class => "btn btn-primary"
+    .actions.col-sm-offset-2
+      = f.submit 'Update Task', :class => "btn btn-primary"

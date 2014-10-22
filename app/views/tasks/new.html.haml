@@ -1,7 +1,20 @@
-%div.container
+.container
+
 
   %h1 New task
+  %br
 
-  = render 'form'
+  = form_for @task, :html => {:class => 'form-horizontal'} do |f|
+    - if @task.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @task.errors.full_messages.each do |msg|
+            %li= msg
 
-  = link_to 'Back', tasks_path, :class => "btn btn-primary"
+    .form-group
+      = f.label :description, :class => "col-md-1 control-label"
+      .col-md-10
+        = f.text_field :description
+    .actions
+      = f.submit 'Create Task', :class => "btn btn-primary col-md-offset-1"
