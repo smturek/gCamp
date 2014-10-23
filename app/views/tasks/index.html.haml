@@ -1,5 +1,8 @@
-%div.container
+.container
   = link_to 'New Task', new_task_path, :class => "btn btn-primary pull-right new-task"
+  = link_to_if(current_page?(controller: 'tasks', query:'sort_by=complete'), 'Incomplete', tasks_path(sort_by: 'complete'), :class => "btn pull-right")
+  = link_to_if(tasks_path, 'All')#, :class => "btn pull-right")
+
   %h1 Tasks
   %table.table
     %tr

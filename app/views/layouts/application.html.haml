@@ -59,6 +59,6 @@
                 %li.inactive
                   FAQ
             %li
-              = link_to_unless_current("Tasks", tasks_path) do
+              = link_to_unless_current("Tasks", tasks_path(sort_by: 'complete')) do
                 %li.inactive
                   Tasks
