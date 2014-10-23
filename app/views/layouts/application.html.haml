@@ -37,6 +37,9 @@
           %a.navbar-brand{:href=> "/"}gCamp
         .navbar-collapse.collapse
 
+    -if notice
+      %p.alert.alert-success#notice
+        =notice
     = yield
 
     .navbar.navbar-inverse.footer
