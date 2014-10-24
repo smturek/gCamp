@@ -49,9 +49,11 @@
               = link_to_unless_current("Tasks", tasks_path(sort_by: 'complete')) do
                 %li.inactive
                   Tasks
+
+          %ul.nav.navbar-nav.navbar-right
             %li
               = link_to 'https://github.com/smturek' do
-                =image_tag("GitHub.jpeg", :class => "social pull-right")
+                =image_tag("GitHub.jpeg", :class => "social")
 
             %li
               = link_to 'https://www.linkedin.com/profile/view?id=375933376&trk=nav_responsive_tab_profile' do
