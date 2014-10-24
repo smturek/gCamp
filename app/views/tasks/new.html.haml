@@ -16,5 +16,11 @@
       = f.label :description, :class => "col-md-1 control-label"
       .col-md-10
         = f.text_field :description, :class => "form-control"
+    .form-group
+      = f.label :due_date, :class => "col-md-1 control-label"
+      .col-md-2
+        =f.date_field :due_date, :class => "form-control"
+      .btn.btn-default.btn-md{:disabled => 'disabled'}
+        %span.glyphicon.glyphicon-calendar
     .actions
       = f.submit 'Create Task', :class => "btn btn-primary col-md-offset-1"

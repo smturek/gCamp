@@ -12,6 +12,11 @@
     = @task.complete
   %br
 
+  %p
+    %b Due Date:
+    = @task.due_date
+  %br
+
   = link_to 'Edit', edit_task_path(@task)
-  \|
+  |
   = link_to 'Back', tasks_path

@@ -17,6 +17,13 @@
         = f.text_field :description, :class => "form-control"
 
     .form-group
+      = f.label :due_date, :class => "col-md-1 control-label"
+      .col-md-2
+        =f.date_field :due_date, :class => "form-control"
+      .btn.btn-default.btn-md{:disabled => 'disabled'}
+        %span.glyphicon.glyphicon-calendar    
+
+    .form-group
       .col-md-12.col-md-offset-1
         .checkbox
           %label
