@@ -1,0 +1,14 @@
+.container
+
+  = form_for @user do |e|
+
+    = e.label :first_name
+    = e.text_field :first_name
+
+    = e.label :last_name
+    = e.text_field :last_name
+
+    = e.label :email
+    = e.text_field :email
+
+    = e.submit 'Create Task'

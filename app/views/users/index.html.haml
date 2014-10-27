@@ -1,0 +1,21 @@
+.container
+
+  = link_to "Create New User", new_user_path, :class => "btn btn-primary pull-right new-task"
+
+  %h1 Users
+  %hr
+  %table.table
+    %thead
+      %tr
+        %th
+          Name
+        %th
+          E-Mail
+    %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          = user.first_name
+          = user.last_name
+        %td
+          = mail_to(user.email)
