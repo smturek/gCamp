@@ -8,16 +8,16 @@
     .form-group
       = e.label :first_name, "First Name", :class => "col-md-1 control-label userform"
       .col-md-4
-        = e.text_field :first_name, :value => Faker::Name.first_name, :class => "form-control"
+        = e.text_field :first_name, :class => "form-control"
 
     .form-group
       = e.label :last_name, "Last Name", :class => "col-md-1 control-label userform"
       .col-md-4
-        = e.text_field :last_name, :value => Faker::Name.last_name, :class => "form-control"
+        = e.text_field :last_name, :class => "form-control"
 
     .form-group
       = e.label :email, :class => "col-md-1 control-label userform"
       .col-md-4
-        = e.email_field :email, :value => Faker::Internet.safe_email, :class => "form-control"
+        = e.email_field :email, :class => "form-control"
 
     = e.submit 'Create User', :class => "btn btn-primary col-md-offset-1"
