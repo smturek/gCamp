@@ -22,5 +22,6 @@
         =f.date_field :due_date, :class => "form-control"
       .btn.btn-default.btn-md{:disabled => 'disabled'}
         %span.glyphicon.glyphicon-calendar
+      - f.check_box :complete  
     .actions
       = f.submit 'Create Task', :class => "btn btn-primary col-md-offset-1"
