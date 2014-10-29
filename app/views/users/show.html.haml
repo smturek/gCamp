@@ -1,0 +1,21 @@
+.container
+
+  = link_to "Edit", edit_user_path(@user), :class => "btn btn-primary pull-right new-task"
+
+  %h1
+    = @user.first_name
+    = @user.last_name
+
+  %dl.dl-horizontal
+    %dt
+      First Name
+    %dd
+      = @user.first_name
+    %dt
+      Last Name
+    %dd
+      = @user.last_name
+    %dt
+      Email
+    %dd
+      = mail_to(@user.email)

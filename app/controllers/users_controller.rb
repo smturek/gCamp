@@ -19,6 +19,16 @@ class UsersController < ApplicationController
     set_user
   end
 
+  def show
+    set_user
+  end
+
+  def destroy
+    set_user
+    @user.destroy
+    redirect_to users_path, notice: "User was succesfully deleted"
+  end
+
   def update
     set_user
     if @user.update(user_params)
