@@ -52,6 +52,10 @@
               = link_to_unless_current("Users", users_path) do
                 %li.inactive
                   Users
+            %li
+              = link_to_unless_current("Projects", projects_path) do
+                %li.inactive
+                  Projects
 
           %ul.nav.navbar-nav.navbar-right
             %li

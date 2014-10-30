@@ -1,0 +1,7 @@
+.container
+
+  = link_to "Destroy", @project, :class => "btn btn-danger pull-right new-task" , :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary pull-right new-task"
+
+  %h1
+    = @project.name
