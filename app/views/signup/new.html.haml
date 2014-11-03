@@ -3,10 +3,11 @@
   .well.col-md-4.col-md-offset-4.signup
     %h1 Sign Up for gCamp!
 
-    =if @user.errors.present?
+    - if @user.errors.present?
       %ul
-        =@user.errors.full_messages.each do |message|
-          %li = message
+      - @user.errors.full_messages.each do |message|
+        %li.error
+          = message
 
     = form_for @user, :html => {:class => 'form-horizontal'}, url: signup_path do |f|
 
@@ -19,7 +20,7 @@
         = f.password_field :password, :class => "form-control"
 
       .form-group
-        = f.label :password_confirmation, :class => "col-md-3 control-label"
+        = f.label :password_confirmation, :class => "col-md-6 control-label"
         = f.password_field :password_confirmation, :class => "form-control"
 
-      =f.submit "Create New User"
+      =f.submit "Create New User", :class => "btn btn-primary signup"

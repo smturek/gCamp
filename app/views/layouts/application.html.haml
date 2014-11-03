@@ -20,12 +20,14 @@
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li
+                = link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user)
+              %li
                 = link_to "Sign Out", signout_path
             - else
               %li
                 = link_to "Sign Up", signup_path
               %li
-                = link_to "Sign In", root_path
+                = link_to "Sign In", signin_path
 
     -if notice
       %p.alert.alert-success.text-center#notice
