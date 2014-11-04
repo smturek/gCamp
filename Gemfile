@@ -20,7 +20,12 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'haml'
 gem 'haml-rails', '~> 0.5.3'
-gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -33,7 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
