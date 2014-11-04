@@ -13,11 +13,11 @@
 
       .form-group.signup-name
         = f.label :first_name, :class => "control-label"
-        = f.email_field :first_name, :class => "form-control"
+        = f.text_field :first_name, :class => "form-control"
 
       .form-group.signup-name
         = f.label :last_name, :class => "control-label"
-        = f.email_field :last_name, :class => "form-control"
+        = f.text_field :last_name, :class => "form-control"
 
       .form-group
         = f.label :email, :class => "col-md-2 control-label"
@@ -31,4 +31,4 @@
         = f.label :password_confirmation, :class => "col-md-6 control-label"
         = f.password_field :password_confirmation, :class => "form-control"
 
-      =f.submit "Create New User", :class => "btn btn-primary signup"
+      = f.submit "Create New User", :class => "btn btn-primary signup"

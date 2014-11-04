@@ -4,6 +4,12 @@
     %h1
       New User
 
+  - if @user.errors.present?
+    %ul
+    - @user.errors.full_messages.each do |message|
+      %li.error
+        = message
+
   = form_for @user, :html => {:class => 'form-horizontal'} do |e|
     .form-group
       = e.label :first_name, "First Name", :class => "col-md-2 control-label"
@@ -23,11 +29,11 @@
     .form-group
       = e.label :password, :class => "col-md-2 control-label"
       .col-md-4
-        = e.password_field :last_name, :class => "form-control"
+        = e.password_field :password, :class => "form-control"
 
     .form-group
       = e.label :password_confirmation, :class => "col-md-2 control-label"
       .col-md-4
-        = e.password_field :last_name, :class => "form-control"
+        = e.password_field :password_confirmation, :class => "form-control"
 
     = e.submit 'Create User', :class => "btn btn-primary col-md-offset-2 userform"
