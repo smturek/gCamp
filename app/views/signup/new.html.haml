@@ -11,6 +11,14 @@
 
     = form_for @user, :html => {:class => 'form-horizontal'}, url: signup_path do |f|
 
+      .form-group.signup-name
+        = f.label :first_name, :class => "control-label"
+        = f.email_field :first_name, :class => "form-control"
+
+      .form-group.signup-name
+        = f.label :last_name, :class => "control-label"
+        = f.email_field :last_name, :class => "form-control"
+
       .form-group
         = f.label :email, :class => "col-md-2 control-label"
         = f.email_field :email, :class => "form-control"

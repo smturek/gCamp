@@ -6,18 +6,28 @@
 
   = form_for @user, :html => {:class => 'form-horizontal'} do |e|
     .form-group
-      = e.label :first_name, "First Name", :class => "col-md-1 control-label userform"
+      = e.label :first_name, "First Name", :class => "col-md-2 control-label"
       .col-md-4
         = e.text_field :first_name, :class => "form-control"
 
     .form-group
-      = e.label :last_name, "Last Name", :class => "col-md-1 control-label userform"
+      = e.label :last_name, "Last Name", :class => "col-md-2 control-label"
       .col-md-4
         = e.text_field :last_name, :class => "form-control"
 
     .form-group
-      = e.label :email, :class => "col-md-1 control-label userform"
+      = e.label :email, :class => "col-md-2 control-label"
       .col-md-4
         = e.email_field :email, :class => "form-control"
 
-    = e.submit 'Create User', :class => "btn btn-primary col-md-offset-1"
+    .form-group
+      = e.label :password, :class => "col-md-2 control-label"
+      .col-md-4
+        = e.password_field :last_name, :class => "form-control"
+
+    .form-group
+      = e.label :password_confirmation, :class => "col-md-2 control-label"
+      .col-md-4
+        = e.password_field :last_name, :class => "form-control"
+
+    = e.submit 'Create User', :class => "btn btn-primary col-md-offset-2 userform"
