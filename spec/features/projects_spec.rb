@@ -30,4 +30,11 @@ feature "Projects" do
     click_on "Destroy"
     expect(page).to have_no_content("Project 1")
   end
+
+  scenario "User attempts to create a project with no name" do
+    visit projects_path
+    click_on "Create New Project"
+    click_on "Create Project"
+    expect(page).to have_content("Name can't be blank")
+  end
 end

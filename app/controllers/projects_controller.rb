@@ -10,8 +10,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_perams)
-    @project.save
-    redirect_to projects_path, notice: "Project was created successfully"
+    if @project.save
+      redirect_to projects_path, notice: "Project was created successfully"
+    else
+      render :new
+    end
   end
 
   def edit

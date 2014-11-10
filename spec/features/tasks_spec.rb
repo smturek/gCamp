@@ -28,4 +28,21 @@ feature "Tasks" do
     click_on "Destroy"
     expect(page).to have_no_content("Task 1")
   end
+
+  scenario "User attempts to create empty task" do
+    visit tasks_path
+    click_on "New Task"
+    click_on "Create Task"
+    expect(page).to have_content("Description can't be blank")
+  end
+
+  scenario "User attempts to create a task in the past" do
+    visit tasks_path
+    click_on "New Task"
+    fill_in "Due date", with: "1/1/1901"
+    click_on "Create Task"
+    expect(page).to have_content("Due date can't be in the past")
+
+  end
+
 end

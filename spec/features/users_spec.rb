@@ -45,4 +45,27 @@ feature "Users" do
     expect(page).to have_no_content("User 1 User 1")
   end
 
+  scenario "User attempts to create a use without the required information" do
+    visit users_path
+    click_on "Create New User"
+    click_on "Create User"
+    expect(page).to have_content("First name can't be blank")
+    expect(page).to have_content("Last name can't be blank")
+    expect(page).to have_content("Email can't be blank")
+  end
+
+  scenario "User attempts to use an email that is already in use" do
+
+    User.create(first_name: "User 1",
+                last_name: "User 1",
+                email: "me@example.com",
+                password: "test",
+                password_confirmation: "test")
+    visit users_path
+    click_on "Create New User"
+    fill_in "Email", with: "me@example.com"
+    click_on "Create User"
+    expect(page).to have_content("Email has already been taken")
+  end
+
 end

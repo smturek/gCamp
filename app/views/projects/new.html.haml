@@ -2,6 +2,14 @@
   .page-header
     %h1 New Project
 
+  - if @project.errors.any?
+    .alert.alert-danger
+      #error_explanation
+        %h3= "#{pluralize(@project.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @project.errors.full_messages.each do |msg|
+            %li= msg
+
   = form_for @project, :html => {:class => 'form-horizontal'} do |f|
 
     .form-group

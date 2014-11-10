@@ -4,11 +4,13 @@
     %h1
       New User
 
-  - if @user.errors.present?
-    %ul
-    - @user.errors.full_messages.each do |message|
-      %li.error
-        = message
+  - if @user.errors.any?
+    .alert.alert-danger
+      #error_explanation
+        %h3= "#{pluralize(@user.errors.count, "error")} prohibited this task from being saved:"
+        %ul
+          - @user.errors.full_messages.each do |msg|
+            %li= msg
 
   = form_for @user, :html => {:class => 'form-horizontal'} do |e|
     .form-group
