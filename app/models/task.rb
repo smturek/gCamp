@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
 
-  validates :description, :due_date, presence: true
+  validates :description, presence: true
   validate :due_date_in_past
 
 
