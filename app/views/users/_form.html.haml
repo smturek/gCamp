@@ -32,4 +32,8 @@
       .col-md-4
         = e.password_field :password_confirmation, :class => "form-control"
 
-    = e.submit "#{title}", :class => "btn btn-primary col-md-offset-2 userform"
+    = e.submit "#{button}", :class => "btn btn-primary col-md-offset-2 userform"
+
+    - if delete
+      = link_to "Delete User", user_path, method: :delete,
+        :data => {:confirm => "Are you sure?"}
