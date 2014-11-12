@@ -1,5 +1,6 @@
+{<img src="https://travis-ci.org/smturek/gCamp.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/smturek/gCamp]
+
 == gCamp README
 
 Heroku URL:  http://shielded-bastion-6793.herokuapp.com/
 
-{<img src="https://travis-ci.org/smturek/gCamp.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/smturek/gCamp]
