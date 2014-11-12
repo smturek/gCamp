@@ -1,0 +1,7 @@
+- if source.errors.any?
+  .alert.alert-danger
+    #error_explanation
+      %h3= "#{pluralize(source.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - source.errors.full_messages.each do |msg|
+          %li= msg
