@@ -51,10 +51,6 @@
                 %li.inactive
                   FAQ
             %li
-              = link_to_unless_current("Tasks", tasks_path(sort_by: 'complete')) do
-                %li.inactive
-                  Tasks
-            %li
               = link_to_unless_current("Users", users_path) do
                 %li.inactive
                   Users
