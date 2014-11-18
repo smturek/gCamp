@@ -7,8 +7,4 @@ class Faq
     @answer = a
   end
 
-  def self.all
-
-  end
-
 end

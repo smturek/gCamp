@@ -1,0 +1,39 @@
+.container
+
+  .page-header
+    %h1
+      = "#{@project.name}: Manage Members"
+
+  .row
+    %ol.breadcrumb
+      %li
+        = link_to "Projects", projects_path
+      %li
+        = link_to "#{@project.name}", project_path(@project)
+      %li.active
+        Memberships
+
+  = render "shared/errors", source: @project
+
+  .row
+    .well.col-md-5
+      = form_for [@project, @membership], :html => {:class => 'form-inline'} do |f|
+
+        = f.collection_select :user_id, User.all, :id, :full_name,
+            {include_blank: "Please select a user... "}, {class: "form-control"}
+
+        = f.collection_select :role_id, Role.all, :id, :role, {}, {class: "form-control"}
+
+        = f.submit "Add New Member", :class => "btn btn-primary"
+
+  .row
+    .table
+      .tbody
+      - @memberships.each do |membership|
+        .tr
+          .td
+            = link_to membership.user.full_name, user_path(membership.user_id)
+          .td
+            = form_for [@project, membership], :html => {:class => 'form-inline'} do |f|
+              = f.collection_select :role_id, Role.all, :id, :role, {}, {class: "form-control"}
+              = f.submit "Update", :class => "btn btn-primary"
