@@ -13,13 +13,31 @@ class MembershipsController < ApplicationController
     @membership = @project.memberships.new(membership_params)
     @membership.save
     redirect_to project_memberships_path,
-        :notice => "#{@membership.user.full_name} was added successfully"
+      :notice => "#{@membership.user.full_name} was added successfully"
+  end
+
+  def update
+    set_membership
+    @membership.update(membership_params)
+    redirect_to project_memberships_path,
+      :notice => "#{@membership.user.full_name} was updated successfully"
+  end
+
+  def destroy
+    set_membership
+    @membership.destroy
+    redirect_to project_memberships_path,
+      :notice => "#{@membership.user.full_name} was deleted successfully"
   end
 
   private
 
   def membership_params
     params.require(:membership).permit(:user_id, :role_id)
+  end
+
+  def set_membership
+    @membership = Membership.find(params[:id])
   end
 
 end
