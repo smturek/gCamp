@@ -7,7 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
   Role.delete_all
 
-
   Role.create!(:role => "member")
 
   Role.create!(:role => "owner")
+
+  Membership.delete_all
+  User.delete_all
+
+  20.times {User.create!(:first_name => Faker::Name.first_name,
+                  :last_name => Faker::Name.last_name,
+                  :email => Faker::Internet.email,
+                  :password_digest => "test")}
