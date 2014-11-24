@@ -13,7 +13,8 @@
       %li.active
         Memberships
 
-  = render "shared/errors", source: @membership
+  .row
+    = render "shared/errors", source: @membership
 
   .row
     .well.col-md-5
@@ -37,4 +38,4 @@
               %td= f.submit "Update", :class => "btn btn-primary"
               %td.delete= link_to content_tag(:span, "", class: 'glyphicon glyphicon-remove'),
                 project_membership_path(@project, membership),
-                method: :delete
+                method: :delete, :data => {:confirm => "Are you sure?"}

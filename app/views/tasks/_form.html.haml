@@ -4,7 +4,8 @@
     = title
   %br
 
-  = render "shared/errors", source: @task
+  .col-md-offset-1
+    = render "shared/errors", source: @task
 
   = form_for [@project, @task], :html => {:class => 'form-horizontal'} do |f|
     .form-group
@@ -19,12 +20,13 @@
       .btn.btn-default.btn-md{:disabled => 'disabled'}
         %span.glyphicon.glyphicon-calendar
 
-    .form-group
-      .col-md-12.col-md-offset-1
-        .checkbox
-          %label
-            = f.check_box :complete
-            Complete
+    - if title === "Edit Task"
+      .form-group
+        .col-md-12.col-md-offset-1
+          .checkbox
+            %label
+              = f.check_box :complete
+              Complete
 
     .actions.col-sm-offset-1
       = f.submit "#{button}", :class => "btn btn-primary"
