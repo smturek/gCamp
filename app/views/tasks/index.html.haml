@@ -26,13 +26,16 @@
     - @tasks.each do |task|
       %tr
         %td
-          = task.description
+          = link_to task.description, [@project, task]
+          %span.badge
+            = task.comments.count
         %td
           = task.complete
         %td
           = task.due_date
-        %td
-          = link_to 'Destroy', [@project, task], :class => "btn btn-danger pull-right", :method => :delete, :data => { :confirm => 'Are you sure?' }
-          = link_to 'Show', [@project, task], :class => "btn btn-success pull-right"
+        %td.delete
+          = link_to content_tag(:span, "", class: 'glyphicon glyphicon-remove pull-right'),
+          project_task_path(@project, task),
+          method: :delete, :data => {:confirm => "Are you sure?"}
           = link_to 'Edit', edit_project_task_path(@project, task), :class => "btn btn-primary pull-right"
   %hr

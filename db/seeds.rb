@@ -13,6 +13,7 @@
 
   Membership.delete_all
   User.delete_all
+  Comment.delete_all
 
   20.times {User.create!(:first_name => Faker::Name.first_name,
                   :last_name => Faker::Name.last_name,

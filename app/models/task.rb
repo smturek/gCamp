@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
   validate :due_date_in_past
 
   belongs_to :project
+  has_many :comments, dependent: :destroy
 
 
   def due_date_in_past
