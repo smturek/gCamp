@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   has_secure_password
 
-  has_many :memberships
-  has_many :comments
+  has_many :memberships, dependent: :destroy
+  has_many :comments, dependent: :nullify
 
   def full_name
     "#{first_name} #{last_name}"

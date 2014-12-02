@@ -1,6 +1,5 @@
 .container
 
-  = link_to "Destroy", @project, :class => "btn btn-danger pull-right new-task" , :method => :delete, :data => { :confirm => 'Are you sure?' }
   = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary pull-right new-task"
 
   %h1
@@ -24,3 +23,15 @@
     = link_to "#{@project.memberships.count} Member", project_memberships_path(@project)
   -else
     = link_to "#{@project.memberships.count} Members", project_memberships_path(@project)
+
+  %br
+  %br
+
+  .well.black
+    %p.strong Delete Project
+    = "Deleting this project will also delete #{pluralize(@project.memberships.count, "membership")},
+      #{pluralize(@project.tasks.count, "task")} and associated comments"
+    %br
+    %br
+    = link_to "Delete", @project, :class => "btn btn-danger" ,
+      :method => :delete, :data => { :confirm => 'Are you sure?' }

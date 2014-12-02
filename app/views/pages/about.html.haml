@@ -1,9 +1,21 @@
-%div.container
-  %div.col-md-4
-  %div.col-md-4
-    %h1.text-center About
-    %p.text-center Get organized and increase productivity with your team
-  %div.col-md-4
-%div.container
-  %div.col-md-6.col-md-offset-3
-    %img.pic.img-responsive{src:"http://localhost:3000/assets/meeting.png"}
+.container
+  %h1 About
+  .row
+    .col-md-4
+      %img.pic.img-responsive{src:"https://farm7.staticflickr.com/6075/6070918161_bf11400270.jpg"}
+    .col-md-8
+      = "We are dedicated to the makers, the creators, the risktakers. We wake up in the middle of the night and furiously write down ideas about how to make your online life better."
+      %br
+      %br
+      = "When we're not hard at work, we're hard at play - we're the loud ones in the bar, and we're always the ones shutting the place down.  Human communication and collaboration is what drives us, and infuses every feature of gCamp."
+      %br
+      %br
+
+  .row
+    .col-md-8
+      = "gCamp is extremely active.  Check out our killer stats below!"
+
+      %br
+      %br
+
+      = "#{pluralize(@projects.count, "Project")}, #{pluralize(@tasks.count, "Task")}, #{pluralize(@memberships.count, "Project Member")}, #{pluralize(@users.count, "User")}, #{pluralize(@comments.count, "Comment")},"
