@@ -26,7 +26,7 @@
 
   - @comments.each do |comment|
     .row
-      .col-md-3.no-padding.slim
+      .col-md-3.slim
         = link_to comment.user.full_name, user_path(comment.user.id)
         .text-muted
           = "#{time_ago_in_words(comment.created_at)} ago"
