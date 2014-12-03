@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+  before_action :logged_in?
+
   def index
     @projects = Project.all
   end

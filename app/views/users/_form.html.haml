@@ -34,6 +34,9 @@
 
     = e.submit "#{button}", :class => "btn btn-primary col-md-offset-2 userform"
 
+    .row.gutter
+
     - if delete
-      = link_to "Delete User", user_path, method: :delete,
-        :data => {:confirm => "Are you sure?"}
+      .well.form-well.col-md-4.col-md-offset-2
+        = link_to "Delete User", user_path, :class => "btn btn-danger center-block",
+         method: :delete, :data => {:confirm => "Are you sure?"}

@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < PublicController
 
   def index
     tolkien = Quote.new("Not all those who wander are lost.","- J.R.R. Tolkien")
