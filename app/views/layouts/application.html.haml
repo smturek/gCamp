@@ -18,16 +18,10 @@
           %a.navbar-brand{:href=> "/"}gCamp
         .navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-right
-            - if current_user
-              %li
-                = link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user)
-              %li
-                = link_to "Sign Out", signout_path
-            - else
-              %li
-                = link_to "Sign Up", signup_path
-              %li
-                = link_to "Sign In", signin_path
+            %li
+              = link_to "#{current_user.first_name} #{current_user.last_name}", user_path(current_user)
+            %li
+              = link_to "Sign Out", signout_path
 
     -if notice
       %p.alert.alert-success.text-center#notice
@@ -58,20 +52,3 @@
               = link_to_unless_current("Projects", projects_path) do
                 %li.inactive
                   Projects
-
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to 'https://github.com/smturek' do
-                = image_tag("GitHub.jpeg", :class => "social")
-
-            %li
-              = link_to 'https://www.linkedin.com/profile/view?id=375933376&trk=nav_responsive_tab_profile' do
-                = image_tag("linkedin.png", :class => "social")
-
-            %li
-              = link_to 'https://twitter.com/smturek' do
-                = image_tag("Twitter.png", :class => "social")
-
-            %li
-              = link_to 'http://www.galvanize.it/school/#main' do
-                = image_tag("gschool.png", :class => "gschool")

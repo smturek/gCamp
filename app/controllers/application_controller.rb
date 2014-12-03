@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     unless current_user
-      redirect_to signin_path
+      redirect_to signin_path, notice: "You must be logged in to access that action"
     end
   end
 
