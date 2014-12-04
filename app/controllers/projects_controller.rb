@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   before_action :logged_in?
 
   def index
@@ -12,6 +11,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_perams)
+    @membership = @project.memberships.new(
+        :project_id => @project.id,
+        :user_id => current_user.id,
+        :role_id => Role.find_by_role("owner").id)
+    @membership.save
     if @project.save
       redirect_to project_tasks_path(@project), notice: "Project was created successfully"
     else

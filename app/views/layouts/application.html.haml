@@ -23,7 +23,7 @@
               role="button" aria-expanded="false">My Projects<span class="caret">
               </span></a>
               %ul.dropdown-menu{:role => "menu"}
-                - @projects.each do |project|
+                - current_user.projects.each do |project|
                   %li
                     = link_to project.name, project_path(project)
                 %li.divider
@@ -46,7 +46,11 @@
     .navbar.navbar-inverse.footer
       .container
         .navbar-footer
-          %ul.nav.navbar-nav
+          %ul.nav.navbar-nav.nav-centered
+            %li
+              = link_to_unless_current("Home", projects_path) do
+                %li.inactive
+                  Home
             %li
               = link_to_unless_current("About", about_path) do
                 %li.inactive
@@ -59,11 +63,3 @@
               = link_to_unless_current("FAQ", faq_path) do
                 %li.inactive
                   FAQ
-            %li
-              = link_to_unless_current("Users", users_path) do
-                %li.inactive
-                  Users
-            %li
-              = link_to_unless_current("Projects", projects_path) do
-                %li.inactive
-                  Projects
