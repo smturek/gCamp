@@ -17,7 +17,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :logged_in?
+  class AccessDenied < StandardError
+
+  end
+
+  rescue_from AccessDenied, with: :record_not_found
+
+  def record_not_found
+    render "public/404", status: 404, layout: false
+  end
 
 
 end

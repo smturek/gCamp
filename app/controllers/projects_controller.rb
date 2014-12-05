@@ -1,6 +1,14 @@
 class ProjectsController < ApplicationController
   before_action :logged_in?
 
+  before_action :only => [:show, :edit, :update, :destroy] do
+    set_project
+    if @project.users.include? current_user
+    else
+      raise AccessDenied
+    end
+  end
+
   def index
     @projects = Project.all
   end

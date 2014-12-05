@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   before_action :logged_in?
-  
+
   def index
-    @users = User.all
+    @users = []
+    current_user.projects.each do |project|
+      @users += project.users
+    end
+    @users = @users.uniq
   end
 
 
