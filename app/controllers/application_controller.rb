@@ -27,5 +27,14 @@ class ApplicationController < ActionController::Base
     render "public/404", status: 404, layout: false
   end
 
+  def owner?(project, user)
+    membership = Membership.where(:project_id => project.id, :user_id => user.id).pluck(:id)
+    if Membership.find_by(id: membership[0]).role == Role.find_by_role("owner")
+      true
+    end
+  end
+
+  helper_method :owner?
+
 
 end
