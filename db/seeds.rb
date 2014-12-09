@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-  Role.delete_all
+  #Role.delete_all
 
-  Role.create!(:role => "member")
-  Role.create!(:role => "owner")
+  #Role.create!(:role => "member")
+  #Role.create!(:role => "owner")
 
   User.delete_all
   Project.delete_all
@@ -16,13 +16,13 @@
   Comment.delete_all
   Membership.delete_all
 
-  #admin = User.create!(
-  #first_name: 'Admin',
-  #last_name: 'User',
-  #email: 'admin@example.com',
-  #password: 'password',
-  #admin
-  #)
+  admin = User.create!(
+  first_name: 'Admin',
+  last_name: 'User',
+  email: 'admin@example.com',
+  password: 'password',
+  admin: true
+  )
 
   owner = User.create!(
   first_name: 'Owner',
@@ -49,17 +49,17 @@
   Membership.create!(
   project: multiple_owners,
   user: owner,
-  role: 'owner'
+  role_id: Role.find_by_role("owner").id
   )
   Membership.create!(
   project: multiple_owners,
   user: user,
-  role: 'owner'
+  role_id: Role.find_by_role("owner").id
   )
   Membership.create!(
   project: multiple_owners,
   user: member,
-  role: 'member'
+  role_id: Role.find_by_role("member").id
   )
 
   task1 = Task.create!(
@@ -78,24 +78,24 @@
     Comment.create!(
     task: task1,
     user: owner,
-    body: Faker::Lorem.sentence
+    comment: Faker::Lorem.sentence
     )
   end
 
   Comment.create!(
   task: task2,
   user: member,
-  body: Faker::Lorem.sentence
+  comment: Faker::Lorem.sentence
   )
 
   single_owner = Project.create!(name: 'Single Owner')
   Membership.create!(
   project: single_owner,
   user: owner,
-  role: 'owner'
+  role_id: Role.find_by_role("owner").id
   )
   Membership.create!(
   project: single_owner,
   user: member,
-  role: 'member'
+  role_id: Role.find_by_role("member").id
   )

@@ -22,4 +22,6 @@
         - if user == current_user
           %td{:align => "right"}
             = link_to "edit", edit_user_path(user)
+        -else
+          %td
   %hr
