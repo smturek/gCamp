@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   before_action :logged_in?
+  before_action :only => [:edit, :update, :destroy] do
+    set_user
+    if @user == current_user
+    else
+      raise AccessDenied
+    end
+  end
 
   def index
     @users = []
