@@ -1,6 +1,7 @@
 .container
 
-  = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary pull-right new-task"
+  - if owner?(@project, current_user)
+    = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary pull-right new-task"
 
   %h1
     = @project.name

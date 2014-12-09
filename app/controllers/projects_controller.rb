@@ -1,13 +1,23 @@
 class ProjectsController < ApplicationController
   before_action :logged_in?
 
-  before_action :only => [:show, :edit, :update, :destroy] do
+  before_action :only => [:show] do
     set_project
     if @project.users.include? current_user
     else
       raise AccessDenied
     end
   end
+
+  before_action :only => [:edit, :update, :destroy] do
+    set_project
+    if owner?(@project, current_user)
+    else
+      raise AccessDenied
+    end
+  end
+
+
 
   def index
     @projects = Project.all
