@@ -31,10 +31,23 @@ class ApplicationController < ActionController::Base
     membership = Membership.where(:project_id => project.id, :user_id => user.id).pluck(:id)
     if Membership.find_by(id: membership[0]).role == Role.find_by_role("owner")
       true
+    else
+      false
     end
   end
 
   helper_method :owner?
+
+  def has_owner?(project)
+    owners = Membership.where(:project_id => project.id, :role_id => Role.find_by_role("owner").id).pluck(:id)
+    if owners.count >= 2
+      true
+    else
+      false
+    end
+  end
+
+  helper_method :has_owner?
 
 
 end

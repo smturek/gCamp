@@ -35,9 +35,13 @@ class MembershipsController < ApplicationController
 
   def destroy
     set_membership
-    @membership.destroy
-    redirect_to project_memberships_path,
-      :notice => "#{@membership.user.full_name} was deleted successfully"
+    if @project.memberships.count != 1 || has_owner?(@project)
+      @membership.destroy
+      redirect_to project_memberships_path,
+        :notice => "#{@membership.user.full_name} was deleted successfully"
+    else
+      render "index"
+    end
   end
 
   private
