@@ -3,6 +3,13 @@ class MembershipsController < ApplicationController
   before_action do
     @project = Project.find(params[:project_id])
   end
+  before_action :only => [:show, :edit, :update, :destroy] do
+    set_membership
+    if @membership.user_id == current_user.id
+    else
+      raise AccessDenied
+    end
+  end
 
   def index
     @memberships = @project.memberships.all

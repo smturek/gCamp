@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry-rails'
 end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

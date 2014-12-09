@@ -4,7 +4,13 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
   end
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action do
+    set_task
+    if @project.users.include? current_user
+    else
+      raise AccessDenied
+    end
+  end
 
 
   # GET /tasks
