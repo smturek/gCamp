@@ -6,33 +6,41 @@
 
   = render "shared/errors", source: @user
 
-  = form_for @user, :html => {:class => 'form-horizontal'} do |e|
+  = form_for @user, :html => {:class => 'form-horizontal'} do |f|
     .form-group
-      = e.label :first_name, "First Name", :class => "col-md-2 control-label"
+      = f.label :first_name, "First Name", :class => "col-md-2 control-label"
       .col-md-4
-        = e.text_field :first_name, :class => "form-control"
+        = f.text_field :first_name, :class => "form-control"
 
     .form-group
-      = e.label :last_name, "Last Name", :class => "col-md-2 control-label"
+      = f.label :last_name, "Last Name", :class => "col-md-2 control-label"
       .col-md-4
-        = e.text_field :last_name, :class => "form-control"
+        = f.text_field :last_name, :class => "form-control"
 
     .form-group
-      = e.label :email, :class => "col-md-2 control-label"
+      = f.label :email, :class => "col-md-2 control-label"
       .col-md-4
-        = e.email_field :email, :class => "form-control"
+        = f.email_field :email, :class => "form-control"
 
     .form-group
-      = e.label :password, :class => "col-md-2 control-label"
+      = f.label :password, :class => "col-md-2 control-label"
       .col-md-4
-        = e.password_field :password, :class => "form-control"
+        = f.password_field :password, :class => "form-control"
 
     .form-group
-      = e.label :password_confirmation, :class => "col-md-2 control-label"
+      = f.label :password_confirmation, :class => "col-md-2 control-label"
       .col-md-4
-        = e.password_field :password_confirmation, :class => "form-control"
+        = f.password_field :password_confirmation, :class => "form-control"
 
-    = e.submit "#{button}", :class => "btn btn-primary col-md-offset-2 userform"
+    - if current_user.admin
+      .form-group
+        .col-md-12.col-md-offset-2
+          .checkbox
+            %label
+              = f.check_box :admin
+              Admin
+
+    = f.submit "#{button}", :class => "btn btn-primary col-md-offset-2 userform"
 
     .row.gutter
 

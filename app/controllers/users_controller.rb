@@ -2,18 +2,22 @@ class UsersController < ApplicationController
   before_action :logged_in?
   before_action :only => [:edit, :update, :destroy] do
     set_user
-    if @user == current_user
+    if current_user.admin || @user == current_user
     else
       raise AccessDenied
     end
   end
 
   def index
-    @users = []
-    current_user.projects.each do |project|
-      @users += project.users
+    if current_user.admin
+      @users = User.all
+    else
+      @users = []
+      current_user.projects.each do |project|
+        @users += project.users
+      end
+      @users = @users.uniq
     end
-    @users = @users.uniq
   end
 
 
@@ -56,9 +60,14 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email,
-                                  :password,:password_confirmation
-                                )
+    if current_user.admin
+      params.require(:user).permit(:first_name, :last_name, :email,
+      :password,:password_confirmation,
+      :admin)
+    else
+      params.require(:user).permit(:first_name, :last_name, :email,
+                                  :password,:password_confirmation)
+    end
   end
 
   def set_user

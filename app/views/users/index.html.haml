@@ -19,7 +19,7 @@
           = link_to "#{user.first_name} #{user.last_name}", user_path(user)
         %td
           = mail_to(user.email)
-        - if user == current_user
+        - if user == current_user || current_user.admin
           %td{:align => "right"}
             = link_to "edit", edit_user_path(user)
         -else

@@ -1,6 +1,6 @@
 .container
 
-  - if @user == current_user
+  - if @user == current_user || current_user.admin
     = link_to "Edit", edit_user_path(@user), :class => "btn btn-primary pull-right new-task"
   - else
     = link_to "Back", users_path, :class => "btn btn-primary pull-right new-task"
