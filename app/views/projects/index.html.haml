@@ -15,11 +15,21 @@
           %th
             Tasks
       %tbody
-      - current_user.projects.each do |project|
-        %tr
-          %td
-            = link_to project.name, project_path(project)
-          %td
-            = link_to project.memberships.count, project_memberships_path(project)
-          %td
-            = link_to project.tasks.count, project_tasks_path(project)
+      - if current_user.admin
+        - @projects.each do |project|
+          %tr
+            %td
+              = link_to project.name, project_path(project)
+            %td
+              = link_to project.memberships.count, project_memberships_path(project)
+            %td
+              = link_to project.tasks.count, project_tasks_path(project)
+      - else
+        - current_user.projects.each do |project|
+          %tr
+            %td
+              = link_to project.name, project_path(project)
+            %td
+              = link_to project.memberships.count, project_memberships_path(project)
+            %td
+              = link_to project.tasks.count, project_tasks_path(project)

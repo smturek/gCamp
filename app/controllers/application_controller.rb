@@ -49,5 +49,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :has_owner?
 
-
 end

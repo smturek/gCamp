@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   before_action :only => [:show] do
     set_project
-    if @project.users.include? current_user
+    if @project.users.include? current_user || current_user.admin
     else
       raise AccessDenied
     end
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   before_action :only => [:edit, :update, :destroy] do
     set_project
-    if owner?(@project, current_user)
+    if owner?(@project, current_user) || current_user.admin
     else
       raise AccessDenied
     end

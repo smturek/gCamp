@@ -12,6 +12,7 @@
     = javascript_include_tag 'application'
 
   %body
+    - @projects = Project.all
     .navbar.navbar-inverse.navbar-fixed-top{:role=>"navigation"}
       .container
         .navbar-header
@@ -23,12 +24,20 @@
               role="button" aria-expanded="false">My Projects<span class="caret">
               </span></a>
               %ul.dropdown-menu{:role => "menu"}
-                - current_user.projects.each do |project|
+                - if current_user.admin
+                  - @projects.each do |project|
+                    %li
+                      = link_to project.name, project_path(project)
+                  %li.divider
                   %li
-                    = link_to project.name, project_path(project)
-                %li.divider
-                %li
-                  = link_to "New Project", new_project_path
+                    = link_to "New Project", new_project_path
+                - else
+                  - current_user.projects.each do |project|
+                    %li
+                      = link_to project.name, project_path(project)
+                  %li.divider
+                  %li
+                    = link_to "New Project", new_project_path
             %li
               = link_to "Users", users_path
 

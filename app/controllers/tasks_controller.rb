@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :only => [:show, :edit, :update, :destroy] do
     set_task
-    if @project.users.include? current_user
+    if @project.users.include? current_user || current_user.admin
     else
       raise AccessDenied
     end
