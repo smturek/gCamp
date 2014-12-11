@@ -37,6 +37,7 @@
   .page-header
     %h1 Pivotal Tracker Projects
 
+
     %table.table
       %thead
         %tr
@@ -46,4 +47,6 @@
       - @tracker_projects.each do |project|
         %tr
           %td
-            = project[:name]
+            = link_to project[:name], tracker_project_path(:id => project[:id])
+          %td
+            = project

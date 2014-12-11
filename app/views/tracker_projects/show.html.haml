@@ -1,0 +1,26 @@
+.container
+
+  .page-header
+    %h1= @name
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Estimate
+        %th= " Labels"
+        %th Current State
+    %tbody
+    - @tracker_stories.each do |story|
+      %tr
+        %td
+          = story[:name]
+        %td
+          = story[:estimate]
+        %td
+          - @labels = ""
+          - story[:labels].each do |label|
+            - @labels += " #{label[:name]},"
+          = @labels.chop ##is an array of hashes.  Need to get :name of all labels into one string
+        %td
+          = story[:current_state]
