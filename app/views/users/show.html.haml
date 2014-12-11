@@ -22,3 +22,7 @@
       Email
     %dd
       = mail_to(@user.email)
+    - if @user == current_user || current_user.admin
+      %dt Pivotal Tracker Token
+      %dd
+        = @user.tracker_token

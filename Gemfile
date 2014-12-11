@@ -20,6 +20,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'haml'
 gem 'haml-rails', '~> 0.5.3'
+gem 'faraday', '~> 0.9.0'
 
 group :development, :test do
   gem 'rspec-rails'
