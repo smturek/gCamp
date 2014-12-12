@@ -25,4 +25,4 @@
     - if @user == current_user || current_user.admin
       %dt Pivotal Tracker Token
       %dd
-        = @user.tracker_token
+        = "#{@user.tracker_token[0..3]}*******************************"
