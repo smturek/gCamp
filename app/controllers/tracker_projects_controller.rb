@@ -7,7 +7,7 @@ class TrackerProjectsController < ApplicationController
 
     @name = "asdf"
     @tracker_projects.each do |project|
-      if params[:id] == project[:id]
+      if params[:id] == project[:id].to_s
         @name = project[:name]
       end
     end
