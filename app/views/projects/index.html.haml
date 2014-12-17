@@ -1,38 +1,36 @@
 .container
 
-  = link_to "Create New Project", new_project_path, :class => "btn btn-primary pull-right new-task"
+  = page_header "Projects" do
+    = link_to "Create New Project", new_project_path, :class => "btn btn-primary"
 
-  .page-header
-    %h1 Projects
-
-    %table.table
-      %thead
+  %table.table
+    %thead
+      %tr
+        %th
+          Name
+        %th
+          Members
+        %th
+          Tasks
+    %tbody
+    - if current_user.admin
+      - @projects.each do |project|
         %tr
-          %th
-            Name
-          %th
-            Members
-          %th
-            Tasks
-      %tbody
-      - if current_user.admin
-        - @projects.each do |project|
-          %tr
-            %td
-              = link_to project.name, project_path(project)
-            %td
-              = link_to project.memberships.count, project_memberships_path(project)
-            %td
-              = link_to project.tasks.count, project_tasks_path(project)
-      - else
-        - current_user.projects.each do |project|
-          %tr
-            %td
-              = link_to project.name, project_path(project)
-            %td
-              = link_to project.memberships.count, project_memberships_path(project)
-            %td
-              = link_to project.tasks.count, project_tasks_path(project)
+          %td
+            = link_to project.name, project_path(project)
+          %td
+            = link_to project.memberships.count, project_memberships_path(project)
+          %td
+            = link_to project.tasks.count, project_tasks_path(project)
+    - else
+      - current_user.projects.each do |project|
+        %tr
+          %td
+            = link_to project.name, project_path(project)
+          %td
+            = link_to project.memberships.count, project_memberships_path(project)
+          %td
+            = link_to project.tasks.count, project_tasks_path(project)
 
   .page-header
     %h1 Pivotal Tracker Projects

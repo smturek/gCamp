@@ -1,10 +1,8 @@
 .container
+  = page_header @project.name do
+    - if current_user.admin || owner?(@project, current_user)
+      = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary"
 
-  - if current_user.admin || owner?(@project, current_user) 
-    = link_to "Edit", edit_project_path(@project), :class => "btn btn-primary pull-right new-task"
-
-  %h1
-    = @project.name
 
   %ol.breadcrumb
     %li
