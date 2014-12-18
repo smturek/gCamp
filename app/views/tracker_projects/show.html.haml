@@ -16,7 +16,7 @@
     - @tracker_stories.each do |story|
       %tr
         %td
-          = story[:name]
+          = link_to story[:name], "https://pivotaltracker.com/n/projects/#{params[:id]}/stories/#{story[:id]}"
         %td
           = story[:estimate]
         %td
